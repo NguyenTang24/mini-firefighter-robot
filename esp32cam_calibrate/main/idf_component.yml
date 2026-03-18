@@ -1,4 +1,0 @@
-## IDF Component Manager manifest
-dependencies:
-  espressif/esp32-camera:
-    version: "^2.0.0"
