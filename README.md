@@ -63,9 +63,9 @@ mini-firefighter-robot/
 
 | Name | Role |
 |---|---|
-| Gia Tang | |
-| Carlos Garcia | |
-| Gianfranco | |
+| Gia Tang | Team member |
+| Carlos Garcia | Team member |
+| Gianfranco | Team member|
 
 ---
 
