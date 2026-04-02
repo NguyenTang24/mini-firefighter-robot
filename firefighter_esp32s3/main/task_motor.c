@@ -1,10 +1,4 @@
-// task_motor.c - PWM motor control and encoder speed equalization
-//
-// Public functions:
-//   motor_drive(left_pct, right_pct) - set speeds -100 to 100
-//   motor_stop()
-//   motor_turn_left_90() / motor_turn_right_90() - blocking turns
-//   encoder_get_yaw() - yaw in radians (USE_ENCODERS only)
+// task_motor.c - motor control
 
 #include <math.h>
 #include <stdatomic.h>

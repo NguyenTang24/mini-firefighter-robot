@@ -1,8 +1,4 @@
-// task_state_machine.c - fire approach and extinguish states
-//
-// Monitors g_state. When navigation sets STATE_FIRE_APPROACH,
-// this task drives toward the flame and sprays.
-// After done, holds until CMD_RESUME from web UI.
+// task_state_machine.c - drive toward fire and spray
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"

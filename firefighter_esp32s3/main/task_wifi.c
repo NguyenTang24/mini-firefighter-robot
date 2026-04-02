@@ -1,8 +1,4 @@
-// task_wifi.c - WiFi access point and web control panel
-//
-// Connect to "FireFighter" WiFi then open http://192.168.4.1
-// Buttons: START, STOP, RESUME, RESET
-// Also lets you tune the turn time and shows current state
+// task_wifi.c - wifi AP and web control page
 
 #include <string.h>
 #include <stdlib.h>

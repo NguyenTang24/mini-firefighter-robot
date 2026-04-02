@@ -1,8 +1,4 @@
-// task_navigation.c - landmark following and obstacle avoidance
-//
-// Reads from q_camera. Commands motors via motor_drive/stop/turn.
-// Path: orange -> pink -> yellow -> purple (center)
-// Turns left 90 degrees at each landmark.
+// task_navigation.c - follow landmarks and turn at each one
 
 #include <math.h>
 #include "freertos/FreeRTOS.h"

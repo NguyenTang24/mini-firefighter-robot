@@ -1,8 +1,4 @@
-// task_camera_uart.c - reads lines from the ESP32-CAM over UART and parses them
-//
-// Expected format:
-//   LM:1 bearing:-0.12 px:380   <- landmark detected
-//   NO_LM                        <- nothing seen
+// task_camera_uart.c - reads LM: lines from ESP32-CAM over UART
 
 #include <string.h>
 #include <stdlib.h>

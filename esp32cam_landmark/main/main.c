@@ -1,10 +1,4 @@
-// esp32cam_landmark - color landmark detector
-// Board: AI-Thinker ESP32-CAM
-//
-// Serial output at 115200 baud:
-//   LM:1 bearing:+0.05 px:290   <- orange card
-//   LM:2 bearing:-0.08 px:190   <- pink card
-//   NO_LM                        <- nothing detected
+// esp32cam_landmark - detects colored cards and prints bearing over serial
 
 #include <stdio.h>
 #include <math.h>
@@ -57,9 +51,7 @@ typedef struct {
     bool  found;
 } Blob;
 
-// scan the frame for pixels matching the given RGB565 ranges
-// dom_ch: 0=none 1=R dominant 2=G dominant 3=B dominant
-// dom_margin: dominant channel must beat both others by this much (6-bit scale)
+// scan frame for pixels matching the color range
 static Blob scan_blob(const uint8_t *buf, int w, int h,
                       int r_min, int r_max,
                       int g_min, int g_max,

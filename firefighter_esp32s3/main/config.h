@@ -1,5 +1,4 @@
-// config.h - pin assignments and tuning values for FireFighter ESP32-S3
-// put all hardware-specific numbers here, not scattered in task files
+// config.h - pin assignments and tuning
 
 #pragma once
 

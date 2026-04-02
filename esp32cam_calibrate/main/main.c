@@ -1,22 +1,6 @@
-/*
- * esp32cam_calibrate — Color threshold calibration tool
- * Board  : AI-Thinker ESP32-CAM
- * Target : ESP-IDF v5.x
- *
- * HOW TO USE:
- *   1. Flash this project to the ESP32-CAM
- *   2. Open serial monitor at 115200 baud
- *   3. Hold a color card in front of the camera
- *   4. Press 'r' in the monitor to record that reading
- *   5. Repeat for each color
- *   6. Copy the recorded values into cam_colors.h with ±4 margin
- *
- * Live output (continuous):
- *   CAL  avg: R=18 G=8 B=5   min: R=14 G=5 B=3   max: R=22 G=11 B=7
- *
- * When you press 'r':
- *   RECORDED #1  avg: R=18 G=8 B=5   min: R=14 G=5 B=3   max: R=22 G=11 B=7
- */
+// esp32cam_calibrate - read RGB values from camera center region
+// flash this, hold color card in front, press r to record
+// copy values into cam_colors.h
 
 #include <stdio.h>
 #include <string.h>
@@ -28,7 +12,7 @@
 
 static const char *TAG = "CAL";
 
-/* AI-Thinker pin map — do NOT change */
+// AI-Thinker ESP32-CAM pins
 static camera_config_t cam_cfg = {
     .pin_pwdn     = 32,  .pin_reset    = -1,
     .pin_xclk     =  0,  .pin_sccb_sda = 26,  .pin_sccb_scl = 27,
@@ -83,7 +67,7 @@ static Sample sample_region(const uint8_t *buf, int w,
     return s;
 }
 
-/* ── UART input task — watches for 'r' keypress ───────────────────────── */
+// watch for 'r' keypress on serial
 static void input_task(void *arg)
 {
     uart_config_t cfg = {
@@ -105,7 +89,6 @@ static void input_task(void *arg)
     }
 }
 
-/* ── Main calibration task ────────────────────────────────────────────── */
 static void calibrate_task(void *arg)
 {
     esp_err_t err = esp_camera_init(&cam_cfg);
@@ -115,11 +98,11 @@ static void calibrate_task(void *arg)
         return;
     }
 
-    /* Match landmark firmware camera settings exactly */
+    // same settings as landmark firmware
     sensor_t *sensor = esp_camera_sensor_get();
-    sensor->set_whitebal(sensor, 0);      /* AWB OFF — fixed white balance */
+    sensor->set_whitebal(sensor, 0);      // AWB off
     sensor->set_awb_gain(sensor, 0);
-    sensor->set_wb_mode(sensor, 4);       /* 4 = home (indoor) */
+    sensor->set_wb_mode(sensor, 4);       // home preset
     sensor->set_saturation(sensor, 0);
     sensor->set_contrast(sensor, 0);
     sensor->set_brightness(sensor, 0);

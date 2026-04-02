@@ -1,15 +1,4 @@
-// main.c - FireFighter ESP32-S3 entry point
-//
-// Tasks:
-//   task_motor        - PWM + encoder speed control
-//   task_camera_uart  - reads LM: lines from ESP32-CAM
-//   task_navigation   - landmark following and turns
-//   task_wifi         - web UI (start/stop/reset)
-//
-// Disabled for now (re-enable when ready):
-//   task_lidar        - TF-Luna distance sensor
-//   task_flame_detect - IR flame sensor array
-//   task_state_machine- fire approach and spray
+// main.c
 
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"

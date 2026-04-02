@@ -1,12 +1,5 @@
-// cam_colors.h - RGB565 color thresholds for each landmark
-//
-// Camera must be set to AWB OFF, wb_mode=4 (home) before these work.
-// R is 5-bit (0-31), G is 6-bit (0-63), B is 5-bit (0-31)
-//
-// To recalibrate: flash esp32cam_calibrate, point at the card, note R/G/B values.
-// Set _MIN = reading - 3 and _MAX = reading + 3 as a starting point.
-//
-// Landmark IDs: 0=Red(off)  1=Orange  2=Pink  3=Yellow  4=Purple
+// cam_colors.h - RGB565 thresholds for each landmark color
+// AWB must be OFF (wb_mode=4) or orange won't detect
 
 #pragma once
 
