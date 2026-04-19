@@ -6,11 +6,21 @@
 #include "freertos/task.h"
 #include "driver/ledc.h"
 #include "driver/gpio.h"
+#include "esp_timer.h"
 #include "esp_log.h"
 #include "config.h"
 #include "shared.h"
 
 static const char *TAG = "MOTOR";
+
+#define LEDC_TIMER      LEDC_TIMER_1
+#define LEDC_MODE       LEDC_LOW_SPEED_MODE
+#define LEDC_FREQ_HZ    5000
+#define LEDC_RESOLUTION LEDC_TIMER_10_BIT   // 0-1023
+#define LEDC_CH_L       LEDC_CHANNEL_1
+#define LEDC_CH_R       LEDC_CHANNEL_2
+
+#define GET_MS() (uint32_t)(esp_timer_get_time() / 1000)
 
 #if USE_ENCODERS
 static volatile int32_t enc_l_count = 0;
