@@ -1,0 +1,26 @@
+# ESP-IDF build output
+build/
+sdkconfig.old
+
+# ESP-IDF managed components (downloaded on build)
+managed_components/
+dependencies.lock
+
+# PlatformIO
+.pio/
+
+# Claude Code memory
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
